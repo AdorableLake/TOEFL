@@ -1,0 +1,10 @@
+class GetToeflTestInfos():
+  def __init__(self):
+  self.username = USERNAME_TF
+  self.password = PASSWORD_TF
+  self.index_url = "https://toefl.neea.cn/index"
+  self.option = webdriver.SafariOption()
+  self.option.add_argument('--user-agent')
+  # self.option.add_argument('--headless') # 启用无界面模式，爬取时不会弹出浏览器
+  self.driver = webdriver.Safari(option=self.option)
+  self.wait = WebDriverWait(self.driver, timeout=30)
