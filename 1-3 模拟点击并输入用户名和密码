@@ -1,0 +1,24 @@
+def input_infos(self):
+    """
+    模拟点击登录，输入用户名和密码
+    ：return：
+    """
+    # 点击登录按钮
+    self.driver.get(self.index_url)
+    login_button = self.wait.until(
+        EC.element_to_be_clickable((By.CLASS_NAME, "footer_butt"))
+    )
+    login_button.click()
+    print(self.driver.title)
+    # 输入用户名
+    input_name = self.wait.until(
+        EC.presence_of_element_located((By.ID, "userName"))
+    )
+    input_name.clear()
+    input_name.send_keys(self.username)
+    # 输入密码
+    input_pwd = self.wait.until(
+        EC.presence_of_element_located((By.ID, "textPassword"))
+    )
+    input_pwd.clear()
+    input_pwd.send_keys(self.password)
